@@ -14,8 +14,7 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const newUser = req.body;
-    await Helper.create(newUser);
+    const newUser = await Helper.create(req.body);
     res.status(201).json(newUser);
   } catch (error) {
     res.status(500).json({ message: error.me });
