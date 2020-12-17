@@ -1,9 +1,7 @@
 const User = require("./user-model");
 const db = require("../../data/connection");
-const { response } = require("express");
 
 const Albert = { name: "Albert" };
-const Edward = { name: "Edward" };
 const Bells = { name: "Ella" };
 
 beforeAll(async () => {
@@ -17,7 +15,7 @@ afterAll(async () => {
   await db.destroy();
 });
 
-describe("User Model Performs as expected ", () => {
+describe("User Model Performs getAll as expected ", () => {
   it("Returns an empty array if no users exsist.", async () => {
     const response = await User.getAll();
     expect(response).toHaveLength(0);
